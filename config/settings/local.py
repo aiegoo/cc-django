@@ -11,7 +11,7 @@ SECRET_KEY = env(
     default="wtgYfrYL4oWeUoD4ymU8T1BB3PgTqgWBZm7X3YgiaqGjHlrYoGOspg0PtgdWVrZW",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "210.179.54.69"]
 
 # CACHES
 # ------------------------------------------------------------------------------
@@ -58,7 +58,14 @@ if env("USE_DOCKER") == "yes":
 # django-extensions
 # ------------------------------------------------------------------------------
 # https://django-extensions.readthedocs.io/en/latest/installation_instructions.html#configuration
-INSTALLED_APPS += ["django_extensions"]  # noqa F405
+INSTALLED_APPS += ["django_extensions", "debug_toolbar"]  # noqa F405
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'Name': 'twoscoops',
+        'HOST': 'localhost',
+    }
+}
